@@ -7,10 +7,10 @@ defmodule BasketTest do
 
     Kago.add_item(basket, %Kago.Item{price: 500})
 
-    assert Kago.total_price(basket) == 500
+    assert Kago.total_price(basket) == {:ok, 500}
 
     Kago.add_item(basket, %Kago.Item{price: 300})
 
-    assert Kago.total_price(basket) == 800
+    assert Kago.total_price(basket) == {:ok, 800}
   end
 end
