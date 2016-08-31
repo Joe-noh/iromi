@@ -1,4 +1,4 @@
-defmodule BasketManager.Basket do
+defmodule Kago.Basket do
   use GenServer
 
   defstruct items: []
@@ -9,10 +9,10 @@ defmodule BasketManager.Basket do
     GenServer.start_link(__MODULE__, nil, name: via(basket_id))
   end
 
-  def init(_), do: {:ok, %BasketManager.Basket{}}
+  def init(_), do: {:ok, %Kago.Basket{}}
 
   def handle_cast({:add_item, item}, basket = %{items: items}) do
-    new_state = %BasketManager.Basket{basket | items: [item | items]}
+    new_state = %Kago.Basket{basket | items: [item | items]}
 
     {:noreply, new_state}
   end
@@ -43,7 +43,7 @@ defmodule BasketManager.Basket do
   def terminate(id) do
     reg_tuple(id)
     |> :gproc.whereis_name
-    |> BasketManager.BasketSup.terminate_child()
+    |> Kago.BasketSup.terminate_child()
   end
 
   def exists?(basket_id) do
