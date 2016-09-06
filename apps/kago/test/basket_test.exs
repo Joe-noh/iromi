@@ -20,9 +20,9 @@ defmodule BasketTest do
     Kago.add_item(basket, plate = %Kago.Item{name: "plate", price: 300})
     Kago.add_item(basket, spoon = %Kago.Item{name: "spoon", price: 100})
 
-    {:ok, content} = Kago.basket_content(basket)
+    {:ok, %{items: items}} = Kago.basket_content(basket)
 
-    assert plate in content.items
-    assert spoon in content.items
+    assert plate in items
+    assert spoon in items
   end
 end

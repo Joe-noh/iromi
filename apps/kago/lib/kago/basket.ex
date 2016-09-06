@@ -22,8 +22,7 @@ defmodule Kago.Basket do
   end
 
   def handle_call(:content, _from, basket = %{items: items}) do
-    content = %{items: items, total_price: calc_total(basket)}
-    {:reply, content, basket}
+    {:reply, %{items: items}, basket}
   end
 
   # interfaces
