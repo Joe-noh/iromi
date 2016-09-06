@@ -27,14 +27,17 @@ defmodule Kago.Basket do
 
   # interfaces
 
+  @spec add_item(String.t, Kago.Item.t) :: :ok
   def add_item(id, item) do
     GenServer.cast(via(id), {:add_item, item})
   end
 
+  @spec total_price(String.t) :: integer
   def total_price(id) do
     GenServer.call(via(id), :total_price)
   end
 
+  @spec content(String.t) :: [Kago.Item.t]
   def content(id) do
     GenServer.call(via(id), :content)
   end
@@ -45,6 +48,7 @@ defmodule Kago.Basket do
     |> Kago.BasketSup.terminate_child()
   end
 
+  @spec exists?(String.t) :: boolean
   def exists?(basket_id) do
     reg_tuple(basket_id) |> :gproc.whereis_name() != :undefined
   end
