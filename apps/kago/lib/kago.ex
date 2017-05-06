@@ -1,17 +1,4 @@
 defmodule Kago do
-  use Application
-
-  def start(_type, _args) do
-    import Supervisor.Spec, warn: false
-
-    children = [
-      worker(Kago.BasketSup, []),
-    ]
-
-    opts = [strategy: :one_for_one, name: Kago.Supervisor]
-    Supervisor.start_link(children, opts)
-  end
-
   @spec new_basket :: {:ok, String.t}
   def new_basket do
     basket_id = generate_id()
