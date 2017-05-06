@@ -11,7 +11,7 @@ defmodule Iromi.Mixfile do
 
   defp deps do
     [
-      {:dialyxir, "~> 0.3", only: :dev}
+      {:dialyxir, "~> 0.5", only: :dev}
     ]
   end
 end
