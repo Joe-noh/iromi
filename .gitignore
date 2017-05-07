@@ -1,9 +1,6 @@
-/_build
-/cover
-/deps
-/doc
+_build
+cover
+deps
+doc
 erl_crash.dump
 *.ez
-
-rel/&
-!rel/config.exs
