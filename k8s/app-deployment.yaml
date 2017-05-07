@@ -1,0 +1,34 @@
+---
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: app
+  labels:
+    tier: app
+spec:
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        tier: app
+    spec:
+     containers:
+       - name: kago-app
+         image: gcr.io/iromi-166910/kago-app:latest
+         ports:
+           - name: app
+             containerPort: 4000
+         lifecycle:
+          postStart:
+           exec:
+            command:
+              - /bin/bash
+              - -c
+              - mix ecto.setup
+       - name: rev-proxy
+         image: gcr.io/iromi-166910/kago-web:latest
+         ports:
+          - name: http
+            containerPort: 80
+          - name: https
+            containerPort: 443

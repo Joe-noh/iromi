@@ -42,5 +42,5 @@ config :kago, Kago.Repo,
   username: "postgres",
   password: "postgres",
   database: "kago_dev",
-  hostname: "localhost",
+  hostname: "kago-db",
   pool_size: 10
