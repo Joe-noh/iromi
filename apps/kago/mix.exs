@@ -35,9 +35,7 @@ defmodule Kago.Mixfile do
      {:gettext, "~> 0.11"},
      {:cowboy, "~> 1.0"},
 
-     {:gproc, "~> 0.6"},
-
-     {:distillery, "~> 1.0"}]
+     {:gproc, "~> 0.6"}]
   end
 
   # Aliases are shortcuts or tasks specific to the current project.
