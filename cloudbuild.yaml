@@ -1,7 +1,7 @@
 ---
 steps:
   - name: 'gcr.io/cloud-builders/docker'
-    args: ['build', '--build-arg', 'env=prod', '-t', 'gcr.io/iromi/kago', '.']
+    args: ['build', '--build-arg', 'env=prod', '-t', 'gcr.io/$PROJECT_ID/kago', '.']
     dir: 'apps/kago'
 images:
-  - 'gcr.io/iromi/kago'
+  - 'gcr.io/$PROJECT_ID/kago'
