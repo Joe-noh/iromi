@@ -14,4 +14,5 @@ config :kago, Kago.Repo,
   username: "postgres",
   password: "postgres",
   database: "kago_prod",
+  hostname: "kago-db-postgresql.iromi-dev"
   pool_size: 15
