@@ -7,5 +7,7 @@ defmodule Kago.Web.Router do
 
   scope "/api", Kago.Web do
     pipe_through :api
+
+    get "/hello", HelloController, :show
   end
 end
