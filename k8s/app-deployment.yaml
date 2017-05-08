@@ -24,7 +24,8 @@ spec:
                 command:
                   - /bin/bash
                   - -c
-                  - mix ecto.setup
+                  - mix
+                  - ecto.setup
         - name: rev-proxy
           image: gcr.io/iromi-166910/kago-web
           ports:
